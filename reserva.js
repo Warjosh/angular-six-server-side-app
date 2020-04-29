@@ -38,6 +38,9 @@ var usuariosRoute = require('./routes/usuarios');
 
 
 //Conexion a la base de datos
+// Conexion offline
+// mongoose.connection.openUri('mongodb://' + credential.SERVER + ':' + credential.PORT + '/' + credential.DB, { useCreateIndex: true, useNewUrlParser: true, "auth": credential.USERDB == '' ? undefined : { "authSource": "admin" }, "user": credential.USERDB == '' ? undefined : credential.USERDB, "pass": credential.PASSDB == '' ? undefined : credential.PASSDB, }, (err, res) => {
+// Conexion online with mongoatlas
 mongoose.connection.openUri('mongodb+srv://' + credential.USERDB + ':' + credential.PASSDB + '@cluster0-lm43p.mongodb.net/test?retryWrites=true&w=majority', { useCreateIndex: true, useNewUrlParser: true, "auth": credential.USERDB == '' ? undefined : { "authSource": "admin" }, "user": credential.USERDB == '' ? undefined : credential.USERDB, "pass": credential.PASSDB == '' ? undefined : credential.PASSDB, }, (err, res) => {
 
     if (err) throw err;
