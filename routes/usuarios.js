@@ -86,7 +86,7 @@ app.post('/add', (req, res) => {
     body.empresaRif = 'J-402457111';
     body.codigoExpira = '';
     body.tiempoExpiracion = '';
-
+    
     Usuario.create(body, function(err, data) {
         if (err) {
             return res.status(500).json({

@@ -73,18 +73,18 @@ app.post('/send', (req, res) => {
             nodemailer.createTestAccount((err, account) => {
                 // create reusable transporter object using the default SMTP transport
                 let transporter = nodemailer.createTransport({
-                    host: 'smtp.gmail.com',
-                    // port: 587,
+                    host: 'smtp.mailgun.org',
+                    //port: 587,
                     // secure: false, // true for 465, false for other ports
                     auth: {
-                        user: 'mailsmtpauth@gmail.com', // generated ethereal user
-                        pass: 'DgFarm#12345' // generated ethereal password
+                        user: 'postmaster@sandboxdfef60f793864741998e92a86d5ddc9e.mailgun.org', // generated ethereal user
+                        pass: '847729f6bd1c97021dda492a9b5b57a4-65b08458-79b27d30' // generated ethereal password
                     }
                 });
 
                 // setup email data with unicode symbols
                 let mailOptions = {
-                    from: '"Sistema de Reserva" cotizador@grupodigifarm.com', // sender address
+                    from: '"Sistema de Reserva" booking@mailgun.org ', // sender address
                     to: body.correo, // list of receivers
                     subject: 'Restablecer contraseña', // Subject line
                     // text: 'Contenido del email de prueba', // plain text body
