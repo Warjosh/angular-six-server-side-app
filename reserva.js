@@ -35,6 +35,7 @@ app.use(function(req, res, next) {
 //Importar rutas
 var sessionRoute = require('./routes/session');
 var usuariosRoute = require('./routes/usuarios');
+var productosRoute = require('./routes/producto'); 
 
 
 //Conexion a la base de datos
@@ -52,6 +53,7 @@ mongoose.connection.openUri('mongodb+srv://' + credential.USERDB + ':' + credent
 //Rutas
 app.use('/reserva/session', sessionRoute); 
 app.use('/reserva/usuario', usuariosRoute);
+app.use('/reserva/productos', productosRoute);
 
 //Escuchar peticiones
 app.listen(3002, () => {
